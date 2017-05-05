@@ -35,6 +35,7 @@ export class AnimalListComponent {
   @Input() childAnimalList: Animal[];
   @Output() clickSender = new EventEmitter();
   @Output() clickSellPintSender = new EventEmitter();
+  
 
   editButtonHasBeenClicked(animalToEdit: Animal) {
     this.clickSender.emit(animalToEdit);
@@ -44,9 +45,9 @@ export class AnimalListComponent {
     this.clickSellPintSender.emit(animalToSell);
   }
 
-  filterByEmptiness: string = "tappedAnimals";
+  filterByMaturity: string = "matureAnimals";
 
   onSelect(optionFromMenu) {
-    this.filterByEmptiness = optionFromMenu;
+    this.filterByMaturity = optionFromMenu;
   }
 }
