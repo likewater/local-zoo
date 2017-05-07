@@ -31,20 +31,31 @@ export class AppComponent {
   }
 
   increaseAge(currentAnimal) {
-    if (currentAnimal.animalAge > 0) {
-      currentAnimal.animalAge = currentAnimal.animalAge + 1;
-    } else {
-      currentAnimal.youngAnimal = true;
-    }
+    currentAnimal.age = currentAnimal.age + 1;
+    // return currentAnimal.age;
   }
 
   decreaseAge(currentAnimal) {
-    if (currentAnimal.animalAge >= 1) {
-      currentAnimal.animalAge = currentAnimal.animalAge - 1;
-    } else {
-      currentAnimal.youngAnimal = true;
-    }
+    currentAnimal.age = currentAnimal.age - 1;
+    // return currentAnimal.age;
   }
+
+  // increaseAge(currentAnimal) {
+  //    if (currentAnimal.age >= 1) {
+  //     currentAnimal.age = currentAnimal.age + 1;
+  //   } else {
+  //      currentAnimal.matureAnimal = true;
+  //    }
+  // }
+
+  // decreaseAge(currentAnimal) {
+  //   if (currentAnimal.age >= 1) {
+  //     currentAnimal.age = currentAnimal.age - 1;
+  //   }
+  //   else {
+  //     currentAnimal.youngAnimal = true;
+  //   }
+  // }
 
   addAnimal(newAnimalFromChild: Animal) {
     this.masterAnimalList.push(newAnimalFromChild);

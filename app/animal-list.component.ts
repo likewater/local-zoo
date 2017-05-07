@@ -22,8 +22,7 @@ import { Animal } from './animal.model'
       <li>Likes: {{currentAnimal.likes}}</li>
       <li>Dislikes: {{currentAnimal.dislikes}}</li>
       <button (click)="increaseAnimalAgeClicked(currentAnimal)">Increase Age</button>
-      <button
-      (click)="decreaseAnimalAgeClicked(currentAnimal)">Decrease Age</button>
+      <button (click)="decreaseAnimalAgeClicked(currentAnimal)">Decrease Age</button>
       <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit!</button>
       </ul>
     </li>
@@ -34,15 +33,20 @@ import { Animal } from './animal.model'
 export class AnimalListComponent {
   @Input() childAnimalList: Animal[];
   @Output() clickSender = new EventEmitter();
-  @Output() clickSellPintSender = new EventEmitter();
-  
+  @Output() clickIncreaseAgeSender = new EventEmitter();
+  @Output() clickDecreaseAgeSender = new EventEmitter();
+
 
   editButtonHasBeenClicked(animalToEdit: Animal) {
     this.clickSender.emit(animalToEdit);
   }
 
-  sellPintButtonClicked(animalToSell: Animal) {
-    this.clickSellPintSender.emit(animalToSell);
+  increaseAnimalAgeClicked(ageToIncrease: Animal) {
+    this.clickIncreaseAgeSender.emit(ageToIncrease);
+  }
+
+  decreaseAnimalAgeClicked(ageToDecrease: Animal) {
+    this.clickDecreaseAgeSender.emit(ageToDecrease);
   }
 
   filterByMaturity: string = "matureAnimals";
