@@ -32,30 +32,19 @@ export class AppComponent {
 
   increaseAge(currentAnimal) {
     currentAnimal.age = currentAnimal.age + 1;
+    if (currentAnimal.age >= 3){
+      currentAnimal.youngAnimal = false;
+    }
     // return currentAnimal.age;
   }
 
   decreaseAge(currentAnimal) {
     currentAnimal.age = currentAnimal.age - 1;
+    if (currentAnimal.age <= 2){
+      currentAnimal.youngAnimal = true;
+    }
     // return currentAnimal.age;
   }
-
-  // increaseAge(currentAnimal) {
-  //    if (currentAnimal.age >= 1) {
-  //     currentAnimal.age = currentAnimal.age + 1;
-  //   } else {
-  //      currentAnimal.matureAnimal = true;
-  //    }
-  // }
-
-  // decreaseAge(currentAnimal) {
-  //   if (currentAnimal.age >= 1) {
-  //     currentAnimal.age = currentAnimal.age - 1;
-  //   }
-  //   else {
-  //     currentAnimal.youngAnimal = true;
-  //   }
-  // }
 
   addAnimal(newAnimalFromChild: Animal) {
     this.masterAnimalList.push(newAnimalFromChild);

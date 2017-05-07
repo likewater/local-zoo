@@ -5,13 +5,14 @@ import { Animal } from './animal.model'
   selector: 'animal-list',
   template: `
   <select (change)="onSelect($event.target.value)">
-    <option value="allAnimals">All Animals</option>
-    <option value="matureAnimals" selected="selected">Mature Animals</option>
+    <option value="allAnimals" selected="selected">All Animals</option>
+    <option value="matureAnimals">Mature Animals (+2)</option>
     <option value="youngAnimals">Young Animals</option>
   </select>
 
   <ul>
-    <li *ngFor="let currentAnimal of childAnimalList | maturity:filterByMaturity">{{currentAnimal.name}}
+    <li *ngFor="let currentAnimal of childAnimalList | maturity:filterByMaturity">
+      {{currentAnimal.name}}
       : a {{currentAnimal.species}}
       <ul>
       <li>Age: {{currentAnimal.age}}</li>

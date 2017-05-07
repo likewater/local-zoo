@@ -7,16 +7,16 @@ import {Animal} from './animal.model';
 })
 
 export class MaturityPipe implements PipeTransform {
-  transform(input: Animal[], animalAge) {
+  transform(input: Animal[], animalMaturity) {
     var output: Animal[] = [];
-    if (animalAge === "matureAnimals") {
+    if (animalMaturity === "matureAnimals") {
       for (var i=0; i < input.length; i++) {
         if (input[i].youngAnimal === false) {
           output.push(input[i]);
         }
       }
       return output;
-    } else if (animalAge === "youngAnimals") {
+    } else if (animalMaturity === "youngAnimals") {
       for (var i=0; i < input.length; i++) {
         if (input[i].youngAnimal === true) {
           output.push(input[i]);
