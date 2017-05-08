@@ -23,9 +23,9 @@ import { Animal } from './animal.model'
         <li class="list-group-item"><b>Sex:</b> {{currentAnimal.sex}}</li>
         <li class="list-group-item"><b>Likes:</b> {{currentAnimal.likes}}</li>
         <li class="list-group-item"><b>Dislikes:</b> {{currentAnimal.dislikes}}</li>
-        <button (click)="increaseAnimalAgeClicked(currentAnimal)">Increase Age</button>
-        <button (click)="decreaseAnimalAgeClicked(currentAnimal)">Decrease Age</button>
-        <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit Animal</button>
+        <button class="btn btn-default"  (click)="increaseAnimalAgeClicked(currentAnimal)"><b>Increase Age</b></button>
+        <button class="btn btn-default"  (click)="decreaseAnimalAgeClicked(currentAnimal)"><b>Decrease Age</b></button>
+        <button class="btn btn-default"  (click)="editButtonHasBeenClicked(currentAnimal)"><b>Edit Animal</b></button>
         </ul>
       </li>
     </ul>
