@@ -16,13 +16,13 @@ import { Animal } from './animal.model'
       <li class="list-group-item" *ngFor="let currentAnimal of childAnimalList | maturity:filterByMaturity">
         <h3><b>{{currentAnimal.name}}: {{currentAnimal.species}}</b></h3>
         <ul>
-        <li class="list-group-item">Age: {{currentAnimal.age}}</li>
-        <li class="list-group-item">Diet: {{currentAnimal.diet}}</li>
-        <li class="list-group-item">Location: {{currentAnimal.location}}</li>
-        <li class="list-group-item">Caretakers: {{currentAnimal.caretakers}}</li>
-        <li class="list-group-item">Sex: {{currentAnimal.sex}}</li>
-        <li class="list-group-item">Likes: {{currentAnimal.likes}}</li>
-        <li class="list-group-item">Dislikes: {{currentAnimal.dislikes}}</li>
+        <li class="list-group-item"><b>Age:</b> {{currentAnimal.age}}</li>
+        <li class="list-group-item"><b>Diet:</b> {{currentAnimal.diet}}</li>
+        <li class="list-group-item"><b>Location:</b> {{currentAnimal.location}}</li>
+        <li class="list-group-item"><b>Caretakers:</b> {{currentAnimal.caretakers}}</li>
+        <li class="list-group-item"><b>Sex:</b> {{currentAnimal.sex}}</li>
+        <li class="list-group-item"><b>Likes:</b> {{currentAnimal.likes}}</li>
+        <li class="list-group-item"><b>Dislikes:</b> {{currentAnimal.dislikes}}</li>
         <button (click)="increaseAnimalAgeClicked(currentAnimal)">Increase Age</button>
         <button (click)="decreaseAnimalAgeClicked(currentAnimal)">Decrease Age</button>
         <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit Animal</button>

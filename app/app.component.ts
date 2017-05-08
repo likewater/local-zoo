@@ -6,10 +6,17 @@ import { Animal } from './animal.model';
   template: `
   <div class="container">
     <div class="jumbotron">
+      <img id="jumbotronLogo" src="resources/images/zebras.png" alt="Two zebras">
       <h1>Pittsburgh Zoo Animal Tracker</h1>
     </div>
     <div class="row">
       <div class="col-lg-12">
+      <!--<nav class="navbar navbar-default" id="nav">
+      <h4 class="navbar-text">ACB Interns Preferences</h4>
+      <p class="navbar-text"><a href="#" rel="/resources/styles/black.css">Black on White</a></p>
+      <p class="navbar-text"><a href="#" rel="/resources/styles/white.css">White on Black</a></p>
+      <p class="navbar-text"><a href="#" rel="build/css/blue.css">Yellow on Blue</a></p>
+    </nav>-->
         <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)" (clickIncreaseAgeSender)="increaseAge($event)" (clickDecreaseAgeSender)="decreaseAge($event)">
         </animal-list>
       </div>
