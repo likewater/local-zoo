@@ -4,30 +4,33 @@ import { Animal } from './animal.model'
 @Component ({
   selector: 'animal-list',
   template: `
-  <select (change)="onSelect($event.target.value)">
-    <option value="allAnimals" selected="selected">All Animals</option>
-    <option value="matureAnimals">Mature Animals (+2)</option>
-    <option value="youngAnimals">Young Animals</option>
-  </select>
-
-  <ul>
-    <li *ngFor="let currentAnimal of childAnimalList | maturity:filterByMaturity">
-      {{currentAnimal.name}}
-      : a {{currentAnimal.species}}
-      <ul>
-      <li>Age: {{currentAnimal.age}}</li>
-      <li>Diet: {{currentAnimal.diet}}</li>
-      <li>Location: {{currentAnimal.location}}</li>
-      <li>Caretakers: {{currentAnimal.caretakers}}</li>
-      <li>Sex: {{currentAnimal.sex}}</li>
-      <li>Likes: {{currentAnimal.likes}}</li>
-      <li>Dislikes: {{currentAnimal.dislikes}}</li>
-      <button (click)="increaseAnimalAgeClicked(currentAnimal)">Increase Age</button>
-      <button (click)="decreaseAnimalAgeClicked(currentAnimal)">Decrease Age</button>
-      <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit!</button>
-      </ul>
-    </li>
-  </ul>
+  <div class="panel panel-default">
+    <div class="panel-heading"><select (change)="onSelect($event.target.value)">
+      <option value="allAnimals" selected="selected">All Animals</option>
+      <option value="matureAnimals">Mature Animals (+2)</option>
+      <option value="youngAnimals">Young Animals</option>
+      </select>
+    </div>
+  <div class="panel-body">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let currentAnimal of childAnimalList | maturity:filterByMaturity">
+        <h3><b>{{currentAnimal.name}}: {{currentAnimal.species}}</b></h3>
+        <ul>
+        <li class="list-group-item">Age: {{currentAnimal.age}}</li>
+        <li class="list-group-item">Diet: {{currentAnimal.diet}}</li>
+        <li class="list-group-item">Location: {{currentAnimal.location}}</li>
+        <li class="list-group-item">Caretakers: {{currentAnimal.caretakers}}</li>
+        <li class="list-group-item">Sex: {{currentAnimal.sex}}</li>
+        <li class="list-group-item">Likes: {{currentAnimal.likes}}</li>
+        <li class="list-group-item">Dislikes: {{currentAnimal.dislikes}}</li>
+        <button (click)="increaseAnimalAgeClicked(currentAnimal)">Increase Age</button>
+        <button (click)="decreaseAnimalAgeClicked(currentAnimal)">Decrease Age</button>
+        <button (click)="editButtonHasBeenClicked(currentAnimal)">Edit Animal</button>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  </div>
   `
 })
 
@@ -36,7 +39,6 @@ export class AnimalListComponent {
   @Output() clickSender = new EventEmitter();
   @Output() clickIncreaseAgeSender = new EventEmitter();
   @Output() clickDecreaseAgeSender = new EventEmitter();
-
 
   editButtonHasBeenClicked(animalToEdit: Animal) {
     this.clickSender.emit(animalToEdit);

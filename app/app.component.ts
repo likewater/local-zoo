@@ -5,10 +5,19 @@ import { Animal } from './animal.model';
   selector: 'app-root',
   template: `
   <div class="container">
-  <h1>Pittsburgh Zoo Animal Tracker</h1>
-  <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)" (clickIncreaseAgeSender)="increaseAge($event)" (clickDecreaseAgeSender)="decreaseAge($event)"></animal-list>
-    <edit-animal [childSelectedAnimal]="selectedAnimal"(doneButtonClickedSender)="finishedEditing()"></edit-animal>
-    <new-animal (newAnimalSender)="addAnimal($event)"></new-animal>
+    <div class="jumbotron">
+      <h1>Pittsburgh Zoo Animal Tracker</h1>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <animal-list [childAnimalList]="masterAnimalList" (clickSender)="editAnimal($event)" (clickIncreaseAgeSender)="increaseAge($event)" (clickDecreaseAgeSender)="decreaseAge($event)">
+        </animal-list>
+      </div>
+    </div>
+      <edit-animal [childSelectedAnimal]="selectedAnimal"(doneButtonClickedSender)="finishedEditing()">
+      </edit-animal>
+      <new-animal (newAnimalSender)="addAnimal($event)">
+      </new-animal>
   </div>
   `
 })
@@ -35,7 +44,6 @@ export class AppComponent {
     if (currentAnimal.age >= 3){
       currentAnimal.youngAnimal = false;
     }
-    // return currentAnimal.age;
   }
 
   decreaseAge(currentAnimal) {
@@ -43,11 +51,9 @@ export class AppComponent {
     if (currentAnimal.age <= 2){
       currentAnimal.youngAnimal = true;
     }
-    // return currentAnimal.age;
   }
 
   addAnimal(newAnimalFromChild: Animal) {
     this.masterAnimalList.push(newAnimalFromChild);
   }
-
 }
